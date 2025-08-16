@@ -1,0 +1,32 @@
+{"properties": [
+  {
+    "name": "auth.nonce-expire-seconds",
+    "type": "java.lang.String",
+    "description": "A description for 'auth.nonce-expire-seconds'"
+  },
+  {
+    "name": "auth.password",
+    "type": "java.lang.String",
+    "description": "A description for 'auth.password'"
+  },
+  {
+    "name": "auth.jwt-expire-seconds",
+    "type": "java.lang.String",
+    "description": "A description for 'auth.jwt-expire-seconds'"
+  },
+  {
+    "name": "auth.jwt-secret",
+    "type": "java.lang.String",
+    "description": "A description for 'auth.jwt-secret'"
+  },
+  {
+    "name": "mc-server.jar-path",
+    "type": "java.lang.String",
+    "description": "サーバーのjarファイルを配置している絶対パスを指定してください。"
+  },
+  {
+    "name": "mc-server.data-path",
+    "type": "java.lang.String",
+    "description": "サーバーのデータファイルを配置している絶対パスを指定してください。"
+  }
+]}
