@@ -3,7 +3,12 @@ import { challenge, getClientId, loginRequest } from '../../../store/api/authApi
 import { clientIdState, jwtState } from '../../../store/recoil/atom/authAtoms';
 import { hmacSha256 } from '../utils/HashUtil';
 
-export function useAuth() {
+interface Auth {
+    login: (password: string) => void;
+    logout: () => void;
+}
+
+export function useAuth(): Auth {
 
     const login = useRecoilCallback(({ set }) => async (password: string) => {
         const clientId = await getClientId();
@@ -19,5 +24,5 @@ export function useAuth() {
         reset(jwtState);
     }, [jwtState]);
 
-    return { login, logout, fetchClientId: getClientId, fetchChallenge: challenge };
+    return { login, logout };
 }
