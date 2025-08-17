@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.nonsugertea7821.novris.apps.auth.dto.request.AuthRequest;
+import com.github.nonsugertea7821.novris.apps.auth.dto.request.ChallengeRequest;
 import com.github.nonsugertea7821.novris.apps.auth.dto.response.ChallengeResponse;
 import com.github.nonsugertea7821.novris.apps.auth.service.AuthService;
 
@@ -47,8 +48,8 @@ public class AuthController {
      * @return
      */
     @PostMapping("/challenge")
-    public ChallengeResponse getChallenge(@RequestBody String clientId) {
-        return service.requestChallenge(clientId);
+    public ChallengeResponse getChallenge(@RequestBody ChallengeRequest req) {
+        return service.requestChallenge(req);
     }
 
     /**

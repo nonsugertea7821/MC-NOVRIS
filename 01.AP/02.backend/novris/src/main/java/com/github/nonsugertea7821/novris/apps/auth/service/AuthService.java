@@ -1,6 +1,5 @@
 package com.github.nonsugertea7821.novris.apps.auth.service;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 import javax.crypto.Mac;
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.github.nonsugertea7821.novris.apps.auth.dto.config.AuthProperties;
 import com.github.nonsugertea7821.novris.apps.auth.dto.request.AuthRequest;
+import com.github.nonsugertea7821.novris.apps.auth.dto.request.ChallengeRequest;
 import com.github.nonsugertea7821.novris.apps.auth.dto.response.ChallengeResponse;
 import com.github.nonsugertea7821.novris.apps.auth.model.ClientIdStore;
 import com.github.nonsugertea7821.novris.apps.auth.model.JwtProcessor;
@@ -46,11 +46,11 @@ public class AuthService {
     /**
      * 認証/チャレンジ取得処理
      *
-     * @param clientId クライアント識別子
+     * @param request チャレンジリクエスト
      * @return チャレンジ
      */
-    public ChallengeResponse requestChallenge(String clientId) {
-        String nonce = nonceStore.generateNonce(clientId);
+    public ChallengeResponse requestChallenge(ChallengeRequest req) {
+        String nonce = nonceStore.createNonce(req.getClientId());
         return new ChallengeResponse(nonce);
     }
 
@@ -61,12 +61,15 @@ public class AuthService {
      * @return Jwtトークン
      */
     public String authenticate(AuthRequest req) throws AuthException {
+        String clientId = req.getClientId();
+        String passwordHash = req.getPasswordHash();
+
         // nonceを取得
-        String nonce = nonceStore.getNonce(req.getClientId());
+        String nonce = nonceStore.getNonce(clientId);
         // nonceからパスワードをハッシュ化
         String expectedHash = AuthService.hmacSha256(nonce, properties.getPassword());
         // パスワードハッシュの有効性を検証
-        if (!expectedHash.equals(req.getPasswordHash())) {
+        if (!expectedHash.equals(passwordHash)) {
             throw new AuthException("不正なパスワードです");
         }
         // jwtトークンを返却
@@ -83,9 +86,11 @@ public class AuthService {
     private static String hmacSha256(String nonce, String password) {
         try {
             Mac mac = Mac.getInstance("HmacSHA256");
-            mac.init(new SecretKeySpec(password.getBytes(StandardCharsets.UTF_8), "HmacSHA256"));
-            byte[] result = mac.doFinal(nonce.getBytes(StandardCharsets.UTF_8));
-            return Base64.getEncoder().encodeToString(result);
+            SecretKeySpec secretKey = new SecretKeySpec(nonce.getBytes("UTF-8"), "HmacSHA256");
+            mac.init(secretKey);
+            byte[] hmacBytes = mac.doFinal(password.getBytes("UTF-8"));
+            String hmacBase64 = Base64.getEncoder().encodeToString(hmacBytes);
+            return hmacBase64;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

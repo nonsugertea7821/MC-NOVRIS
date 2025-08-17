@@ -1,5 +1,9 @@
 package com.github.nonsugertea7821.novris.apps.auth.model;
 
+import org.springframework.stereotype.Component;
+
+import lombok.RequiredArgsConstructor;
+
 /**
  * クライアント識別子を製造・保管する。
  *
@@ -7,6 +11,8 @@ package com.github.nonsugertea7821.novris.apps.auth.model;
  * @version 1.0
  * @since 2025/08/16
  */
+@Component
+@RequiredArgsConstructor
 public class ClientIdStore {
 
     public String createClientId() {
