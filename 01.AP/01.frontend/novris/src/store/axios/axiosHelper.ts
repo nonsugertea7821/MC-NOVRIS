@@ -1,43 +1,46 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { getRecoil } from 'recoil-nexus';
 import { NovrisAuthUrl } from '../api/novrisUrl';
-import { jwtState, targetIpState } from '../recoil/atom/authAtoms';
 
 const backendApplicationPort = 8080 as const;
 
 type HttpMethod = 'get' | 'post' | 'put' | 'delete';
 
 class AxiosHelper {
-    private getBaseURL() {
-        const ip = getRecoil(targetIpState);
-        return `http://${ip}:${backendApplicationPort}`;
+
+    private ip: string | undefined;
+    private jwtToken: string | undefined;
+
+    setIp(targetIp: string) {
+        this.ip = targetIp;
     }
 
-    private getJwt() {
-        return getRecoil(jwtState);
+    setJwtToken(jwtToken: string) {
+        this.jwtToken = jwtToken;
+    }
+
+    private getBaseURL() {
+        if (this.ip) {
+            return `http://${this.ip}:${backendApplicationPort}`;
+        }
     }
 
     private isAuthUrl(url: string): boolean {
         return Object.values(NovrisAuthUrl).includes(url as typeof NovrisAuthUrl[keyof typeof NovrisAuthUrl]);
     }
 
-    private request<T = any>(
+    private async request<T = any>(
         method: HttpMethod,
         url: string,
         config?: AxiosRequestConfig
     ): Promise<AxiosResponse<T>> {
         const baseURL = this.getBaseURL();
-        const jwt = this.getJwt();
-
         const headers = {
             ...(config?.headers ?? {}),
         };
-
-        if (jwt && !this.isAuthUrl(url)) {
-            headers['Authorization'] = `Bearer ${jwt}`;
+        if (this.jwtToken && !this.isAuthUrl(url)) {
+            headers['Authorization'] = `Bearer ${this.jwtToken}`;
         }
-
-        return axios.request<T>({
+        return await axios.request<T>({
             method,
             url,
             baseURL,
@@ -46,7 +49,7 @@ class AxiosHelper {
         });
     }
 
-    get<T = any>(url: string, config?: AxiosRequestConfig) {
+    async get<T = any>(url: string, config?: AxiosRequestConfig) {
         return this.request<T>('get', url, config);
     }
 

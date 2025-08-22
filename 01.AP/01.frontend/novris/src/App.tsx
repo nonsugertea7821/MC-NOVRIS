@@ -1,13 +1,11 @@
 // src/App.tsx
 import { RecoilRoot } from 'recoil';
-import RecoilNexus from 'recoil-nexus';
-import { Auth } from './apps/Auth/Auth';
+import AppRouter from './store/route/AppRouter';
 
 export default function App() {
   return (
     <RecoilRoot>
-      <RecoilNexus />
-      <Auth/>
+      <AppRouter />
     </RecoilRoot>
   );
 }

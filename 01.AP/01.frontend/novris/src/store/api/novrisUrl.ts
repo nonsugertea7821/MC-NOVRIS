@@ -5,5 +5,6 @@ export const NovrisAuthUrl = {
 } as const;
 
 export const NovrisUrl = {
-    ...NovrisAuthUrl
+    ...NovrisAuthUrl,
+    NOVRIS_API_POST_LOGOUT_REQUEST:'/api/logout'
 } as const;

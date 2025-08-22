@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.nonsugertea7821.novris.apps.auth.dto.request.AuthRequest;
 import com.github.nonsugertea7821.novris.apps.auth.dto.request.ChallengeRequest;
 import com.github.nonsugertea7821.novris.apps.auth.dto.response.ChallengeResponse;
+import com.github.nonsugertea7821.novris.apps.auth.dto.response.LoginResponse;
 import com.github.nonsugertea7821.novris.apps.auth.service.AuthService;
 
 import jakarta.security.auth.message.AuthException;
@@ -59,12 +60,15 @@ public class AuthController {
      * @return Jwtトークン
      */
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody AuthRequest req) {
+    public ResponseEntity<LoginResponse> login(@RequestBody AuthRequest req) {
         try {
             String token = service.authenticate(req);
-            return ResponseEntity.ok(token);
+            LoginResponse response = new LoginResponse(token);
+            return ResponseEntity.ok(response);
         } catch (AuthException e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+            LoginResponse response = new LoginResponse(null);
+            response.setErrorMessage(e.getMessage());
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
         }
     }
 }
