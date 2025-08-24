@@ -1,10 +1,13 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { NovrisAuthUrl } from '../api/novrisUrl';
 
+/** バックエンドアプリケーションポート */
 const DEFAULT_BACKEND_APPLICATION_PORT = 8080 as const;
 
+/** HTTPメソッド列挙型 */
 type HttpMethod = 'get' | 'post' | 'put' | 'delete';
 
+/** Axiosリクエストヘルパー */
 class AxiosHelper {
 
     private ip: string | undefined;

@@ -1,5 +1,6 @@
 import { axiosHelper } from "../../../axios/axiosHelper";
 
+// テスト用API(本番環境では削除)
 
 export const callApiNeedAuthGetTest = async () => {
     return await axiosHelper.get<string>(

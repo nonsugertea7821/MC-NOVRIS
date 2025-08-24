@@ -1,12 +1,17 @@
 import { Box, Button, TextField, Typography } from '@mui/material';
-import { ChangeEvent, FormEvent, useCallback, useState } from 'react';
+import { ChangeEvent, FormEvent, JSX, useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { authSelector } from '../../store/recoil/common/auth/authRecoil';
 import { NovrisRoutes } from '../../store/route/routes';
 import AppContainer from '../layout/AppContainer';
 
-export function LoginForm() {
+/**
+ * ログインフォームコンポーネント
+ * @author nonsugertea7821
+ * @returns JSX.Element
+ */
+export function LoginForm() :JSX.Element {
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [targetIp, setTargetIp] = useState('');

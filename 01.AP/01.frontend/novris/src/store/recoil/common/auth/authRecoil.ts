@@ -5,22 +5,35 @@ import { AtomKeys } from '../../keys/AtomKeys';
 import { SelectorKeys } from '../../keys/SelectorKeys';
 import { hmacSha256 } from './utils/HashUtil';
 
+/** ログイン状態インターフェース */
 interface LoginState {
+    /** クライアント識別子 */
     clientId?: string;
+    /** 認証状態 */
     isAuthenticated: boolean;
 }
 
+/** 認証機能インターフェース */
 interface Auth {
-    /** クライアントID */
+    /** クライアント識別子 */
     clientId?: string,
     /** 認証状態 */
     isAuthenticated: boolean,
-    /** ログイン処理 */
+    /**
+     * ログイン処理
+     * @param targetIp 接続先IP
+     * @param password 平文パスワード
+     * @returns Promise<void>
+     */
     login: (targetIp: string, password: string) => Promise<void>;
-    /** ログアウト処理 */
+    /**
+     * ログアウト処理
+     * @returns Promise<void>
+     */
     logout: () => Promise<void>;
 }
 
+/** ログイン状態 */
 const loginState = atom<LoginState>({
     key: AtomKeys.NOVRIS_AUTH_LOGIN_STATE,
     default: {
@@ -29,6 +42,7 @@ const loginState = atom<LoginState>({
     }
 });
 
+/** クライアント識別子セレクター */
 const clientIdSelector = selector<string>({
     key: SelectorKeys.NOVRIS_AUTH_CLIENT_ID_SELECTOR,
     get: async ({ get }) => {
@@ -41,7 +55,7 @@ const clientIdSelector = selector<string>({
     }
 })
 
-/** 認証：APIセレクター */
+/** 認証機能セレクター */
 export const authSelector = selector<Auth>({
     key: SelectorKeys.NOVRIS_AUTH_INTERFACE_SELECTOR,
     get: ({ get, getCallback }) => {

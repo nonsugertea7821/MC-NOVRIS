@@ -3,16 +3,36 @@ import React from 'react';
 import { NovrisRoutes } from '../../store/route/routes';
 import { HEADER_HEIGHT } from './AppHeader';
 
+/**
+ * アプリケーションのルートドロワーコンポーネント引数
+ * @author nonsugertea7821
+ * @param open - ドロワーの開閉状態
+ * @param onClose - ドロワー閉じる関数
+ * @param onSelect - メニュー選択関数
+ * @returns JSX.Element
+ */
 interface AppRouteDrawerProps {
+    /** ドロワーの開閉状態 */
     open: boolean;
+    /** ドロワー閉じる関数 */
     onClose?: () => void;
+    /** メニュー選択関数 */
     onSelect?: (apKey: string) => void;
 }
 
+/**
+ * ドロワーに表示するルートリスト
+ */
 const AP_ROUTES_DRAWER_LIST = [
     NovrisRoutes.AP_MC_SERVER_MANAGEMENT,
 ];
 
+/**
+ * アプリケーションのルートドロワーコンポーネント
+ * @author nonsugertea7821
+ * @param param0 - アプリケーションのルートドロワーコンポーネント引数
+ * @returns JSX.Element
+ */
 export default function AppRouteDrawer({ open, onClose, onSelect }: AppRouteDrawerProps) {
 
     return (

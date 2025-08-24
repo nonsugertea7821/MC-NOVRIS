@@ -2,17 +2,30 @@ import styled from '@emotion/styled';
 import MenuIcon from '@mui/icons-material/Menu';
 import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
 
+/**
+ * ヘッダーコンポーネント引数
+ * @author nonsugertea7821
+ * @param onMenuToggle - メニュー切り替え関数
+ * @returns JSX.Element
+ */
 interface HeaderProps {
+    /** メニュー切り替え関数 */
     onMenuToggle: () => void;
 }
 
 export const HEADER_HEIGHT = 64;
 
+/**
+ * スタイリングされたAppBarコンポーネント
+ */
 const StyledAppBar = styled(AppBar)({
     position: 'fixed',
     height: HEADER_HEIGHT,
 });
 
+/**
+ * スタイリングされたタイトルTypographyコンポーネント
+ */
 const TitleTypography = styled(Typography)({
     whiteSpace: 'nowrap',
     overflow: 'hidden',
@@ -21,9 +34,15 @@ const TitleTypography = styled(Typography)({
     p: 0,
 });
 
+/**
+ * アプリケーションヘッダーコンポーネント
+ * @author nonsugertea7821
+ * @param param0 - ヘッダーコンポーネント引数
+ * @returns JSX.Element
+ */
 export default function AppHeader({ onMenuToggle }: HeaderProps) {
     return (
-        <StyledAppBar  sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+        <StyledAppBar sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
             <Toolbar disableGutters sx={{ minHeight: HEADER_HEIGHT, height: HEADER_HEIGHT, px: 2 }}>
                 <IconButton edge="start" color="inherit" onClick={onMenuToggle} sx={{ mr: 2, flexShrink: 0 }}>
                     <MenuIcon />

@@ -6,12 +6,22 @@ import Home from "../../parts/home/Home";
 import { authSelector } from "../recoil/common/auth/authRecoil";
 import { NovrisRoutes } from "./routes";
 
+/**
+ * 認証保護ルートコンポーネント
+ * @author nonsugertea7821
+ * @returns JSX.Element
+ */
 function ProtectedRoute(): JSX.Element {
     const { isAuthenticated } = useRecoilValue(authSelector);
     return isAuthenticated ? <Outlet /> : <Navigate to="/" replace />;
 };
 
-export default function AppRouter() {
+/**
+ * アプリルーターコンポーネント
+ * @author nonsugertea7821
+ * @returns JSX.Element
+ */
+export default function AppRouter(): JSX.Element {
     return (
         <BrowserRouter>
             <Routes>
