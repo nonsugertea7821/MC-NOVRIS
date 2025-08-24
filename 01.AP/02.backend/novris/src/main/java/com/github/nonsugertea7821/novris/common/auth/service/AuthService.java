@@ -7,7 +7,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.springframework.stereotype.Service;
 
-import com.github.nonsugertea7821.novris.common.auth.dto.config.AuthProperties;
+import com.github.nonsugertea7821.novris.common.auth.dto.properties.AuthProperties;
 import com.github.nonsugertea7821.novris.common.auth.dto.request.AuthRequest;
 import com.github.nonsugertea7821.novris.common.auth.dto.request.ChallengeRequest;
 import com.github.nonsugertea7821.novris.common.auth.dto.response.ChallengeResponse;

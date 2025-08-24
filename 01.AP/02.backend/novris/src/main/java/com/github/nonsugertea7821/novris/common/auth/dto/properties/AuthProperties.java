@@ -1,4 +1,4 @@
-package com.github.nonsugertea7821.novris.common.auth.dto.config;
+package com.github.nonsugertea7821.novris.common.auth.dto.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

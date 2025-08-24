@@ -9,7 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.github.nonsugertea7821.novris.common.auth.dto.config.AuthProperties;
+import com.github.nonsugertea7821.novris.common.auth.dto.properties.AuthProperties;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;

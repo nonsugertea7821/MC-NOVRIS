@@ -5,7 +5,7 @@ import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
-import com.github.nonsugertea7821.novris.common.auth.dto.config.AuthProperties;
+import com.github.nonsugertea7821.novris.common.auth.dto.properties.AuthProperties;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
