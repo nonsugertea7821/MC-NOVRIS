@@ -17,7 +17,7 @@ class AxiosHelper {
      * 接続先IPアドレスを設定する。
      * @param ip 接続先IPアドレス
      */
-    setIp(ip: string) {
+    setIp(ip?: string) {
         this.ip = ip;
     }
 
@@ -25,7 +25,7 @@ class AxiosHelper {
      * jwtトークンを設定する。
      * @param jwtToken jwtトークン
      */
-    setJwtToken(jwtToken: string) {
+    setJwtToken(jwtToken?: string) {
         this.jwtToken = jwtToken;
     }
 

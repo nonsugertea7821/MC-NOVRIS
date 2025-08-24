@@ -85,6 +85,8 @@ export const authSelector = selector<Auth>({
         const logout = getCallback(({ reset }) => async () => {
             const logoutResponse = await logoutRequest();
             if (logoutResponse.resultCode === 0) {
+                axiosHelper.setIp();
+                axiosHelper.setJwtToken();
                 reset(loginState)
             }
         })
