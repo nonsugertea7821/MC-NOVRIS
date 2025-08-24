@@ -1,4 +1,4 @@
-package com.github.nonsugertea7821.novris.apps.auth.model;
+package com.github.nonsugertea7821.novris.common.auth.model;
 
 import org.springframework.stereotype.Component;
 

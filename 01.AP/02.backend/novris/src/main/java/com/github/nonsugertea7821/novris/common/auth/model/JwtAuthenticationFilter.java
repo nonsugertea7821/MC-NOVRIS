@@ -1,4 +1,4 @@
-package com.github.nonsugertea7821.novris.apps.auth.model;
+package com.github.nonsugertea7821.novris.common.auth.model;
 
 import java.io.IOException;
 import java.security.Key;
@@ -9,7 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.github.nonsugertea7821.novris.apps.auth.dto.config.AuthProperties;
+import com.github.nonsugertea7821.novris.common.auth.dto.config.AuthProperties;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;

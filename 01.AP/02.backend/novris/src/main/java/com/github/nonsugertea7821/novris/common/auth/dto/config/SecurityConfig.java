@@ -1,4 +1,4 @@
-package com.github.nonsugertea7821.novris.apps.auth.dto.config;
+package com.github.nonsugertea7821.novris.common.auth.dto.config;
 
 import java.util.Arrays;
 
@@ -12,7 +12,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import com.github.nonsugertea7821.novris.apps.auth.model.JwtAuthenticationFilter;
+import com.github.nonsugertea7821.novris.common.auth.model.JwtAuthenticationFilter;
 
 import lombok.RequiredArgsConstructor;
 

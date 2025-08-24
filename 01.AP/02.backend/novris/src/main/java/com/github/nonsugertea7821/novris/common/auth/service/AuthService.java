@@ -1,4 +1,4 @@
-package com.github.nonsugertea7821.novris.apps.auth.service;
+package com.github.nonsugertea7821.novris.common.auth.service;
 
 import java.util.Base64;
 
@@ -7,13 +7,13 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.springframework.stereotype.Service;
 
-import com.github.nonsugertea7821.novris.apps.auth.dto.config.AuthProperties;
-import com.github.nonsugertea7821.novris.apps.auth.dto.request.AuthRequest;
-import com.github.nonsugertea7821.novris.apps.auth.dto.request.ChallengeRequest;
-import com.github.nonsugertea7821.novris.apps.auth.dto.response.ChallengeResponse;
-import com.github.nonsugertea7821.novris.apps.auth.model.ClientIdStore;
-import com.github.nonsugertea7821.novris.apps.auth.model.JwtProcessor;
-import com.github.nonsugertea7821.novris.apps.auth.model.NonceStore;
+import com.github.nonsugertea7821.novris.common.auth.dto.config.AuthProperties;
+import com.github.nonsugertea7821.novris.common.auth.dto.request.AuthRequest;
+import com.github.nonsugertea7821.novris.common.auth.dto.request.ChallengeRequest;
+import com.github.nonsugertea7821.novris.common.auth.dto.response.ChallengeResponse;
+import com.github.nonsugertea7821.novris.common.auth.model.ClientIdStore;
+import com.github.nonsugertea7821.novris.common.auth.model.JwtProcessor;
+import com.github.nonsugertea7821.novris.common.auth.model.NonceStore;
 
 import jakarta.security.auth.message.AuthException;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.github.nonsugertea7821.novris.apps.auth.dto.response;
+package com.github.nonsugertea7821.novris.common.auth.dto.response;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package com.github.nonsugertea7821.novris.apps.auth.controller;
+package com.github.nonsugertea7821.novris.common.auth.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.nonsugertea7821.novris.apps.auth.dto.request.AuthRequest;
-import com.github.nonsugertea7821.novris.apps.auth.dto.request.ChallengeRequest;
-import com.github.nonsugertea7821.novris.apps.auth.dto.response.ChallengeResponse;
-import com.github.nonsugertea7821.novris.apps.auth.dto.response.LoginResponse;
-import com.github.nonsugertea7821.novris.apps.auth.service.AuthService;
+import com.github.nonsugertea7821.novris.common.auth.dto.request.AuthRequest;
+import com.github.nonsugertea7821.novris.common.auth.dto.request.ChallengeRequest;
+import com.github.nonsugertea7821.novris.common.auth.dto.response.ChallengeResponse;
+import com.github.nonsugertea7821.novris.common.auth.dto.response.LoginResponse;
+import com.github.nonsugertea7821.novris.common.auth.service.AuthService;
 
 import jakarta.security.auth.message.AuthException;
 import lombok.RequiredArgsConstructor;

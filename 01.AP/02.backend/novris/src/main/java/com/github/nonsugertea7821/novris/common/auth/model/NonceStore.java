@@ -1,4 +1,4 @@
-package com.github.nonsugertea7821.novris.apps.auth.model;
+package com.github.nonsugertea7821.novris.common.auth.model;
 
 import java.time.Instant;
 import java.util.HashMap;
@@ -7,7 +7,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Component;
 
-import com.github.nonsugertea7821.novris.apps.auth.dto.config.AuthProperties;
+import com.github.nonsugertea7821.novris.common.auth.dto.config.AuthProperties;
 
 import jakarta.security.auth.message.AuthException;
 import lombok.RequiredArgsConstructor;

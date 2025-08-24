@@ -1,11 +1,11 @@
-package com.github.nonsugertea7821.novris.apps.auth.model;
+package com.github.nonsugertea7821.novris.common.auth.model;
 
 import java.security.Key;
 import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
-import com.github.nonsugertea7821.novris.apps.auth.dto.config.AuthProperties;
+import com.github.nonsugertea7821.novris.common.auth.dto.config.AuthProperties;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
