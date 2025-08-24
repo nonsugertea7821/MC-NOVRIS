@@ -9,7 +9,6 @@ import { HEADER_HEIGHT } from './AppHeader';
  * @param open - ドロワーの開閉状態
  * @param onClose - ドロワー閉じる関数
  * @param onSelect - メニュー選択関数
- * @returns JSX.Element
  */
 interface AppRouteDrawerProps {
     /** ドロワーの開閉状態 */

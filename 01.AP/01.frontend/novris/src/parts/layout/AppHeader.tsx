@@ -6,7 +6,6 @@ import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
  * ヘッダーコンポーネント引数
  * @author nonsugertea7821
  * @param onMenuToggle - メニュー切り替え関数
- * @returns JSX.Element
  */
 interface HeaderProps {
     /** メニュー切り替え関数 */

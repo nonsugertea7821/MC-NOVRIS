@@ -7,7 +7,6 @@ import AppRouteDrawer from './AppRouteDrawer';
  * アプリケーションのコンテナコンポーネント引数
  * @author nonsugertea7821
  * @param children - 子コンポーネント
- * @returns JSX.Element
  */
 interface AppContainerProps {
     /** 子コンポーネント */
